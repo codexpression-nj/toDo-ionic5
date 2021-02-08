@@ -9,30 +9,7 @@ import { AddNewTaskPage } from '../add-new-task/add-new-task.page';
 })
 export class HomePage {
   todoList = []
-  // todoList = [{
-  //   itemName: 'Coding',
-  //   itemDueDate: '12-01-21',
-  //   itemPriority: 'high',
-  //   itemCategory: 'work'
-  // },
-  // {
-  //   itemName: 'Design ',
-  //   itemDueDate: '12-01-21',
-  //   itemPriority: 'low',
-  //   itemCategory: 'work'
-  // },
-  // {
-  //   itemName: 'Meeting with client',
-  //   itemDueDate: '12-01-21',
-  //   itemPriority: 'middle',
-  //   itemCategory: 'work'
-  // },
-  // {
-  //   itemName: 'Meeting with client',
-  //   itemDueDate: '12-01-21',
-  //   itemPriority: 'middle',
-  //   itemCategory: 'work'
-  // },
+  
   
   today: number = Date.now();
 
