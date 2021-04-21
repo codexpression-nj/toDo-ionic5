@@ -14,35 +14,32 @@
   <ion-card *ngFor="let item of todoList; let i = index" class="ion-margin">
     <ion-card-header>
       
-      <ion-card-subtitle [style.color]="item.itemPriority === 'high' ? 'red' : (item.itemPriority === 'low' ? 'green' : 'orange')">
-        {{item.itemCategory}}
+      <ion-card-subtitle [style.color]="item.value.itemPriority === 'high' ? 'red' : (item.value.itemPriority === 'low' ? 'green' : 'orange')">
+        {{item.value.itemCategory}}
       </ion-card-subtitle>
 
       <ion-item>
-        <ion-icon *ngIf="item.itemPriority === 'high'" color="danger" size="small" name="ellipse"></ion-icon>
-        <ion-icon *ngIf="item.itemPriority === 'low'" color="success" size="small" name="ellipse"></ion-icon>
-        <ion-icon *ngIf="item.itemPriority === 'middle'" color="warning" size="small" name="ellipse"></ion-icon>
-        <ion-label> {{ item.itemName}}</ion-label>
+        <ion-icon *ngIf="item.value.itemPriority === 'high'" color="danger" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="item.value.itemPriority === 'low'" color="success" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="item.value.itemPriority === 'middle'" color="warning" size="small" name="ellipse"></ion-icon>
+        <ion-label> {{ item.value.itemName}}</ion-label>
       </ion-item>
 
     </ion-card-header>
 
     <ion-card-content>
-      <ion-label>Due {{item.itemDueDate | date:'fullDate'}}</ion-label>
+      <ion-label>Due {{item.value.itemDueDate | date:'fullDate'}}</ion-label>
     </ion-card-content>
 
     <ion-row>
-      <ion-item>
-        <ion-icon name="time-outline"></ion-icon>
-        <p>Share</p>
+    
+
+      <ion-item button (click)="update(item)">
+        <ion-icon name="create-outline"></ion-icon>
+        <p>Update</p>
       </ion-item>
 
-      <ion-item>
-        <ion-icon name="checkmark-done-outline"></ion-icon>
-        <p>Complete</p>
-      </ion-item>
-
-      <ion-item button (click)="delete(i)">
+      <ion-item button (click)="delete(item.key)">
         <ion-icon name="trash-outline"></ion-icon>
         <p>Cancel</p>
       </ion-item>
